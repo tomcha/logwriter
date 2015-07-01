@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["tomcha"]
   spec.email         = ["tomcha@tomcha.net"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This is a debug helper object class. It makes some log text file.}
+  spec.description   = %Q{This is a debug helper object class. \nIt provides a variety of format of the log output function and it will create any text file.\n}
+  spec.homepage      = "https://github.com/tomcha/logwriter"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
