@@ -2,6 +2,8 @@ require "logwriter/version"
 
 module Logwriter
   class Logger
+    attr_reader :logfile
+
     def initialize(logfile)
       if File.exist?(logfile)
         File.open(logfile, 'a') do |io|
