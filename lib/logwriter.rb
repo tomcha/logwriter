@@ -2,40 +2,31 @@ require "logwriter/version"
 
 module Logwriter
   class Logger
-    attr_reader :logfile
+    attr_reader :target_filepath
 
-    def initialize(logfile)
-      if File.exist?(logfile)
-        File.open(logfile, 'a') do |io|
-          io.print "\n\n"
-          day = Time.now
-          io.print "#{day.inspect}\n"
-        end
-      else
-        File.open(logfile, 'w') do |io|
-          day = Time.now
-          io.print "#{day.inspect}\n"
-        end
+    def initialize(path_string)
+      @target_filepath = path_string
+      File.open(target_filepath, 'a') do |io|
+        io.print "\n#{Time.now.inspect}\n" 
       end
-      @logfile = logfile
     end
 
-    def rec_val(target, valiable_name = 'value')
-      File.open(@logfile, 'a') do |io|
+    def rec_val(target_object, valiable_name = 'value')
+      File.open(@target_filepath, 'a') do |io|
         io.print "#{valiable_name}: "
-        io.print "#{target.inspect}\n"
+        io.print "#{target_object.inspect}\n"
       end
     end
 
-    def rec_class(target)
-      File.open(@logfile, 'a') do |io|
-        io.puts "objectname: #{target.to_str}, class: #{target.class.to_str}, super_class: #{target.super.class.to_str}"
+    def rec_class(target_object)
+      File.open(@target_filepath, 'a') do |io|
+        io.puts "object: #{target_object}, class: #{target_object.class}, superclass: #{target_object.class.superclass}"
       end
     end
 
     def put_flag(flg_number)
-      File.open(@logfile, 'a') do |io|
-        io.puts "/~~  flaged  #{flg_number}"
+      File.open(@target_filepath, 'a') do |io|
+        io.puts "/~~  #{flg_number} flaged  "
       end
     end
   end
