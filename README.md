@@ -31,8 +31,11 @@ scores = Hash.new( mathematics: 85, english: 70, japanese: 60)
 
 lw.rec_val(val)
 lw.rec_val(names, 'names value')
+lw.rec_val(scores, 'scores k & v')
+
 
 lw.rec_class(lw)
+
 
 lw.put_flag(1)
 ```
