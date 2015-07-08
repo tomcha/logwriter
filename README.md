@@ -29,15 +29,15 @@ val = 'strings'
 names = Array.new('foo', 'bar', 'baz')
 scores = Hash.new( mathematics: 85, english: 70, japanese: 60)
 
-lw.rec_val(val)
-lw.rec_val(names, 'names value')
-lw.rec_val(scores, 'scores k & v')
+lw.v(val)
+lw.v(names, 'names value')
+lw.v(scores, 'scores k & v')
 
 
-lw.rec_class(lw)
+lw.c(lw)
 
 
-lw.put_flag(1)
+lw.f(1)
 ```
 
 ## Contributing
