@@ -21,23 +21,29 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-require 'logwrier'
+require 'logwriter'
 
 lw = Logwriter::Logger.new('./debuglog.log')
 
 val = 'strings'
-names = Array.new('foo', 'bar', 'baz')
-scores = Hash.new( mathematics: 85, english: 70, japanese: 60)
+names = Array.new(['foo', 'bar', 'baz'])
+scores = Hash[mathematics: 85, english: 70, japanese: 60]
 
 lw.v(val)
+  #=>value: "strings"
+
 lw.v(names, 'names value')
+  #=>names value: ["foo", "bar", "baz"] 
+
 lw.v(scores, 'scores k & v')
+  #=>scores k & v: {:mathematics=>85, :english=>70, :japanese=>60}
 
 
 lw.c(lw)
-
+  #=>object: #<Logwriter::Logger:0x007fdf1b05f418>, class: Logwriter::Logger, superclass: Object
 
 lw.f(1)
+  #=>/~~  1 flaged
 ```
 
 ## Contributing
